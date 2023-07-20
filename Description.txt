@@ -1,0 +1,75 @@
+Understand the project requirements.
+
+In summary, the Portfolio Management Application aims to provide an efficient and vibrant project portfolio 
+management system. It should support CRUD operations for portfolio managers and projects, enable task and 
+resource management, and feature a project listing page with advanced filtering and sorting options. The
+application should be user-friendly, flexible in technology choices, and well-documented, with a focus on code 
+quality and UI/UX design.
+
+
+Tech Stacks: 
+
+- Frontend - React Native
+- Backend - Node.js, Express, MongoDB, Mongoose
+
+
+Er-Diagram :
+
++------------------+              +--------------+
+|   Portfolio      |              |    Project   |
+|    Manager       |              +--------------+
++------------------+              | ProjectID    |
+| PortfolioManagerID|<----------->| PortfolioID  |
+| Name             |              | ProjectName  |
+| Status           |              | Status       |
+| Role             |              | StartDate    |
+| Bio              |              | EndDate      |
+| StartDate        |              +--------------+
++------------------+  
+
+
+   +------------------+              +--------------+
+     |      Task        |              |   Resource   |
+     +------------------+              +--------------+
+     | TaskID           |              | ResourceID   |
+     | ProjectID        |<------------>| ResourceName |
+     | TaskName         |              +--------------+
+     | Status           |
+     +------------------+
+
+
+## API and EndPoints:
+
+**Registration Route** (**`POST /register`**):
+
+- Purpose: Create a new user account.
+
+**Login Route** (**`POST /login`**):
+
+- Purpose: Authenticate and generate a JWT token for the user.
+
+**Profile API Endpoints:**
+
+**Profile Management Routes** (**`GET /profile`**, **`PATCH /profile`**, **`DELETE /profile`**):
+
+- Purpose: Retrieve, update, and delete user profile information.
+- Functionality: Allows users to retrieve their profile information, update their profile details, and delete
+ their account.
+
+**Project Management Routes:**
+
+**Project Management Routes** (**`GET /projects`**, **`POST /projects`**, **`GET /projects/:id`**,
+ **`PATCH /projects/:id`**,**`DELETE /projects/:id`**):
+
+- Purpose: Create, retrieve, update, and delete projects.
+- Functionality: Allows users to manage projects by creating new projects, retrieving project details, updating
+ project information, and deleting projects.
+
+**Task Management Routes:**
+
+**Task Management Routes** (**`POST /projects/:id/tasks`**, **`GET /projects/:id/tasks`**,
+ **`PUT /projects/:id/tasks/:taskId`**, **`DELETE /projects/:id/tasks/:taskId`**):
+
+- Purpose: Create, retrieve, update, and delete tasks within a project.
+- Functionality: Allows users to manage tasks associated with a specific project by creating tasks, retrieving
+ task details, updating task information, and deleting tasks.
